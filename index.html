@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trace Your Honey – 1839 Mānuka</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── STEP 1: Email Registration ─────────────────────────────── -->
+  <section id="step-1" class="step active">
+    <div class="card">
+      <div class="logo-wrap">
+        <span class="honeycomb">⬡</span>
+        <span class="brand">1839</span>
+      </div>
+
+      <h1>Trace Your Honey</h1>
+      <p class="subtitle">
+        Every jar of 1839 Mānuka Honey carries a unique batch code linking it
+        to independently verified testing, certification and provenance.
+      </p>
+      <p class="subtitle">
+        Register your email to unlock your honey's journey.
+      </p>
+
+      <form id="registration-form" novalidate>
+        <div class="field-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            autocomplete="email"
+          />
+          <span class="field-error" id="email-error"></span>
+        </div>
+
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="marketing-consent" name="marketing_consent" />
+            <span class="checkmark"></span>
+            <span class="checkbox-text">
+              I'd like to receive occasional updates, education and special
+              offers from 1839.
+            </span>
+          </label>
+        </div>
+
+        <div class="form-error" id="form-error"></div>
+
+        <button type="submit" id="continue-btn" class="btn btn-primary">
+          <span class="btn-text">Continue</span>
+          <span class="btn-spinner hidden">&#9679;</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ─── STEP 2: Batch Lookup ────────────────────────────────────── -->
+  <section id="step-2" class="step">
+    <div class="card">
+      <div class="logo-wrap">
+        <span class="honeycomb">⬡</span>
+        <span class="brand">1839</span>
+      </div>
+
+      <h1>Enter Your Batch Code</h1>
+      <p class="subtitle">
+        Enter your batch code to discover the journey of your honey — from
+        New Zealand harvest to your home.
+      </p>
+      <p class="helper">Found on the base or back of your jar.</p>
+
+      <form id="batch-form" novalidate>
+        <div class="field-group">
+          <label for="batch-code">Batch Code</label>
+          <input
+            type="text"
+            id="batch-code"
+            name="batch_code"
+            placeholder="EG: B250401"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <span class="field-error" id="batch-error"></span>
+        </div>
+
+        <div class="form-error" id="batch-form-error"></div>
+
+        <button type="submit" id="trace-btn" class="btn btn-primary">
+          <span class="btn-text">Trace My Honey</span>
+          <span class="btn-spinner hidden">&#9679;</span>
+        </button>
+      </form>
+
+      <button class="btn btn-ghost back-btn" id="back-to-1">
+        ← Back
+      </button>
+    </div>
+  </section>
+
+  <!-- ─── STEP 3: Trace Results ────────────────────────────────────── -->
+  <section id="step-3" class="step">
+    <div class="card result-card">
+      <div class="logo-wrap">
+        <span class="honeycomb">⬡</span>
+        <span class="brand">1839</span>
+      </div>
+
+      <div class="badge-verified" id="verified-badge">
+        ✓ Verified Authentic Honey
+      </div>
+
+      <h2 id="result-batch-title">Batch Details</h2>
+
+      <div class="result-grid" id="result-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <div id="result-notes-wrap" class="notes-wrap hidden">
+        <h3>Notes</h3>
+        <p id="result-notes"></p>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-primary" id="trace-another">
+          Trace Another Batch
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── NOT FOUND STATE ──────────────────────────────────────────── -->
+  <section id="step-not-found" class="step">
+    <div class="card">
+      <div class="logo-wrap">
+        <span class="honeycomb">⬡</span>
+        <span class="brand">1839</span>
+      </div>
+
+      <div class="not-found-icon">🍯</div>
+      <h2>Batch Not Found</h2>
+      <p class="subtitle">
+        Batch code not found. Please check the code on your jar or contact
+        customer support.
+      </p>
+
+      <div class="result-actions">
+        <button class="btn btn-primary" id="try-again">Try Again</button>
+        <a
+          href="mailto:support@1839honey.com"
+          class="btn btn-ghost"
+        >Contact Support</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supabase JS client (CDN – no build step needed) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
