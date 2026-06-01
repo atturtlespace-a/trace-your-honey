@@ -1,8 +1,6 @@
 // ─── Supabase Config ─────────────────────────────────────────────
-// Replace these with your actual Supabase project URL and anon key.
-// These are safe to expose in client-side code (anon key is public).
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'https://oujmcdpycjfhvnvybzlt.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_-pJ04yprVdNkEjwANUo-DQ_urp9SRbi';
 
 // ─── Supabase Client (CDN build, no npm needed) ───────────────────
 const SUPABASE_CONFIGURED =
@@ -76,7 +74,6 @@ const steps = {
 
 let registeredEmail = null;
 
-// ─── Utility: show/hide steps ─────────────────────────────────────
 function showStep(key) {
   Object.values(steps).forEach(s => s.classList.remove('active'));
   const target = typeof key === 'number' ? steps[key] : steps[key];
